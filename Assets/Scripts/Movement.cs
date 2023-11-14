@@ -28,7 +28,15 @@ public class Movement : MonoBehaviour
             float thrust = thrustPower * Time.deltaTime;
             // AddRelativeForce : 오브젝트의 로컬 좌표를 기준으로 힘을 부여 (회전이 된 상태일때 오브젝트의 머리부분으로 힘이 들어감)
             rigid.AddRelativeForce(Vector3.up * thrust);
-        }   
+            AudioManager.instance.PlayThrustSfx();
+        }
+        else
+        {
+            if (AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].isPlaying)
+            {
+                AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].Stop();
+            }
+        }
     }
 
     private void ProcessRotaion()
