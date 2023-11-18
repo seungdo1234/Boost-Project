@@ -4,9 +4,11 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
+public enum ParticleName { ShutDown, Goal, MainThrust = 3 , RightThrust , LeftThrust }
 public enum InteractionName { ShutDown, Goal }
-public class CollsionHandler : MonoBehaviour
+public class CollisionHandler : MonoBehaviour
 {
+    public ParticleSystem[] particles;
     private Movement move;
     private bool isInteracion;
     [SerializeField]
@@ -18,10 +20,7 @@ public class CollsionHandler : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (isInteracion)
-        {
-            return;
-        }
+        if (isInteracion){ return; }
 
 
         switch (collision.gameObject.tag)
@@ -44,6 +43,11 @@ public class CollsionHandler : MonoBehaviour
 
     private IEnumerator InteractiveRocket(InteractionName interaction) // 로켓의 상호작용 1.파괴, 2.골인 ...
     {
+        particles[(int)ParticleName.MainThrust].Stop();
+        particles[(int)ParticleName.MainThrust - 1].Stop();
+        particles[(int)ParticleName.LeftThrust].Stop();
+        particles[(int)ParticleName.RightThrust].Stop();
+
         isInteracion = true;
         move.enabled = false;
         AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].Stop();
@@ -52,6 +56,7 @@ public class CollsionHandler : MonoBehaviour
 
         yield return new WaitForSeconds(levelLoadDelay);
 
+        particles[(int)interaction].Stop();
         isInteracion = false;
         move.enabled = true;
         
@@ -63,9 +68,11 @@ public class CollsionHandler : MonoBehaviour
         switch (interaction)
         {
             case InteractionName.ShutDown:
+                particles[(int)ParticleName.ShutDown].Play();
                 AudioManager.instance.PlayerSfx(Sfx.ShutDown);
                 break;
             case InteractionName.Goal:
+                particles[(int)ParticleName.Goal].Play();
                 AudioManager.instance.PlayerSfx(Sfx.Goal);
                 break;
         }
