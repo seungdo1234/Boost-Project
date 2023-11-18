@@ -17,8 +17,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessThrust();
-        ProcessRotaion();
+            ProcessThrust();
+            ProcessRotaion();
+      
     }
 
     private void ProcessThrust()

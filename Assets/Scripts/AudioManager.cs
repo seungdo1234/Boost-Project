@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Bgm { Main }
-public enum Sfx { Thrust }
+public enum Sfx { Thrust , ShutDown, Goal }
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -81,6 +81,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayerSfx(Sfx sfx)
     {
+        Debug.Log((int)sfx);
         for (int i = 1; i < sfxPlayers.Length; i++) // 0번은 추력 소리 채널이기 때문에 1 ~ channels의 채널만 순회
         {
             // 예를들어 5번 인덱스를 마지막으로 사용했으면 6 7 8 9 10 1 2 3 4 5 이런식으로 순회하게 하기위한 계산임
