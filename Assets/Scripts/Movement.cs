@@ -29,71 +29,93 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            if (!collision.particles[(int)ParticleName.MainThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.MainThrust].Play();
-                collision.particles[(int)ParticleName.MainThrust - 1].Play();
-            }
-
-            float thrust = thrustPower * Time.deltaTime;
-            // AddRelativeForce : 오브젝트의 로컬 좌표를 기준으로 힘을 부여 (회전이 된 상태일때 오브젝트의 머리부분으로 힘이 들어감)
-            rigid.AddRelativeForce(Vector3.up * thrust);
-            AudioManager.instance.PlayThrustSfx();
+            StartThrust();
         }
         else
         {
-            if (collision.particles[(int)ParticleName.MainThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.MainThrust].Stop();
-                collision.particles[(int)ParticleName.MainThrust - 1].Stop();
-            }
-            if (AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].isPlaying)
-            {
-                AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].Stop();
-            }
+            StopThrust();
         }
     }
-
     private void ProcessRotaion()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (!collision.particles[(int)ParticleName.LeftThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.LeftThrust].Play();
-            }
-
-            if (collision.particles[(int)ParticleName.RightThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.RightThrust].Stop();
-            }
-            RotationThrust(rotionPower);
+            LeftRotation();
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (!collision.particles[(int)ParticleName.RightThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.RightThrust].Play();
-            }
-            if (collision.particles[(int)ParticleName.LeftThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.LeftThrust].Stop();
-            }
-
-            RotationThrust(-rotionPower);
+            RightRotation();
         }
         else
         {
-            if (collision.particles[(int)ParticleName.RightThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.RightThrust].Stop();
-            }
-            else if (collision.particles[(int)ParticleName.LeftThrust].isPlaying)
-            {
-                collision.particles[(int)ParticleName.LeftThrust].Stop();
-            }
+            StopRotation();
         }
-        
+    }
+    private void StopThrust()
+    {
+        if (collision.particles[(int)ParticleName.MainThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.MainThrust].Stop();
+            collision.particles[(int)ParticleName.MainThrust - 1].Stop();
+        }
+        if (AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].isPlaying)
+        {
+            AudioManager.instance.sfxPlayers[(int)Sfx.Thrust].Stop();
+        }
+    }
+
+    private void StartThrust()
+    {
+        if (!collision.particles[(int)ParticleName.MainThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.MainThrust].Play();
+            collision.particles[(int)ParticleName.MainThrust - 1].Play();
+        }
+
+        float thrust = thrustPower * Time.deltaTime;
+        // AddRelativeForce : 오브젝트의 로컬 좌표를 기준으로 힘을 부여 (회전이 된 상태일때 오브젝트의 머리부분으로 힘이 들어감)
+        rigid.AddRelativeForce(Vector3.up * thrust);
+        AudioManager.instance.PlayThrustSfx();
+    }
+
+    private void StopRotation()
+    {
+        if (collision.particles[(int)ParticleName.RightThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.RightThrust].Stop();
+        }
+        else if (collision.particles[(int)ParticleName.LeftThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.LeftThrust].Stop();
+        }
+    }
+
+    private void RightRotation()
+    {
+        if (!collision.particles[(int)ParticleName.LeftThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.LeftThrust].Play();
+        }
+        if (collision.particles[(int)ParticleName.RightThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.RightThrust].Stop();
+        }
+
+        RotationThrust(-rotionPower);
+    }
+
+    private void LeftRotation()
+    {
+        if (!collision.particles[(int)ParticleName.RightThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.RightThrust].Play();
+        }
+
+        if (collision.particles[(int)ParticleName.LeftThrust].isPlaying)
+        {
+            collision.particles[(int)ParticleName.LeftThrust].Stop();
+        }
+        RotationThrust(rotionPower);
     }
 
     public void RotationThrust(float rotationDir)
