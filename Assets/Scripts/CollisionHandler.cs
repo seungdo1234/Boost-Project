@@ -11,6 +11,7 @@ public class CollisionHandler : MonoBehaviour
     public ParticleSystem[] particles;
     private Movement move;
     private bool isInteracion;
+    private bool collisionIgnore;
     [SerializeField]
     private float levelLoadDelay;
 
@@ -18,9 +19,27 @@ public class CollisionHandler : MonoBehaviour
     {
         move = GetComponent<Movement>();
     }
+
+    private void Update()
+    {
+        DebugKeys();
+    }
+
+    private void DebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionIgnore = !collisionIgnore;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (isInteracion){ return; }
+        if (isInteracion || collisionIgnore) { return; }
 
 
         switch (collision.gameObject.tag)

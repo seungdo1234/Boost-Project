@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 6889252980481990718}
   - component: {fileID: 795411118546809045}
   - component: {fileID: 3503807723424952181}
-  - component: {fileID: 4160787885784346419}
+  - component: {fileID: 8560108741285191317}
   m_Layer: 0
   m_Name: Thruster 0
   m_TagString: Untagged
@@ -121,7 +121,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4160787885784346419
+--- !u!65 &8560108741285191317
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 4110745254501475385}
   - component: {fileID: 7124225322175603451}
   - component: {fileID: 1666817892980169723}
-  - component: {fileID: 8088005276001513588}
+  - component: {fileID: 5048774591031776921}
   m_Layer: 0
   m_Name: Wing 1
   m_TagString: Untagged
@@ -226,7 +226,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8088005276001513588
+--- !u!65 &5048774591031776921
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,8 +245,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Center: {x: -0.00000047683716, y: 0, z: 0}
 --- !u!1 &2566170882443879202
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 80167596453994711}
   - component: {fileID: 5804021646511420015}
   - component: {fileID: 6595206272011687702}
-  - component: {fileID: 7468261700544438307}
+  - component: {fileID: 2361851281752660064}
   m_Layer: 0
   m_Name: Thruster 1
   m_TagString: Untagged
@@ -331,7 +331,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7468261700544438307
+--- !u!65 &2361851281752660064
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,7 +456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24ccc74a5e162941b86e77c09e21e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landingPad: {fileID: 0}
   particles:
   - {fileID: 5098622916510570307}
   - {fileID: 7789395012502122695}
@@ -476,7 +475,6 @@ GameObject:
   - component: {fileID: 8245860175517671077}
   - component: {fileID: 638807339117080276}
   - component: {fileID: 7271451933260822863}
-  - component: {fileID: 583182760597894329}
   m_Layer: 0
   m_Name: Window 1
   m_TagString: Untagged
@@ -549,27 +547,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &583182760597894329
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4193661588050613866}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5776380511614049537
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +558,7 @@ GameObject:
   - component: {fileID: 3136397812674231519}
   - component: {fileID: 7236953562600611317}
   - component: {fileID: 873664985431167092}
-  - component: {fileID: 8626934809991450039}
+  - component: {fileID: 7903239727379449196}
   m_Layer: 0
   m_Name: Wing 0
   m_TagString: Untagged
@@ -654,7 +631,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8626934809991450039
+--- !u!65 &7903239727379449196
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -673,8 +650,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Center: {x: -0.0000009536743, y: 0, z: 0}
 --- !u!1 &8665045331344935256
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +663,7 @@ GameObject:
   - component: {fileID: 7162439402804836676}
   - component: {fileID: 3651489522162704219}
   - component: {fileID: 7953836059162856464}
-  - component: {fileID: 8930987185187524324}
+  - component: {fileID: 3732651405225654237}
   m_Layer: 0
   m_Name: RocketBody
   m_TagString: Untagged
@@ -759,7 +736,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8930987185187524324
+--- !u!136 &3732651405225654237
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -779,7 +756,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.9999999
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9175737288038928121
@@ -793,7 +770,6 @@ GameObject:
   - component: {fileID: 4506838456316586026}
   - component: {fileID: 7596971234125708484}
   - component: {fileID: 2344373446696755129}
-  - component: {fileID: 627449661994459562}
   m_Layer: 0
   m_Name: Window 0
   m_TagString: Untagged
@@ -866,27 +842,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &627449661994459562
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175737288038928121}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &609995296447645264
 PrefabInstance:
   m_ObjectHideFlags: 0
